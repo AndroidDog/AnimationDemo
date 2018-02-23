@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--动画插值器，影响动画的播放速度--><!--表示集合中的动画是否和集合共享一个插值器-->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="300"
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:shareInterpolator="true">
+    <!--透明度动画，对应 AlphaAnimation 类，可以改变 View 的透明度-->
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+    <!--旋转动画，对应着 RotateAnimation ,它可以使 View 具有旋转的动画效果-->
+    <rotate
+        android:duration="2000"
+        android:fromDegrees="0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:startOffset="3000"
+        android:toDegrees="180" />
+    <!--通过设置第一个alpha动画播放3s后启动rotate动画实现组合动画，如果不设置startOffset则同时播放
+ pivotX:表示旋转时候的相对轴的坐标点，即围绕哪一点进行旋转，默认情况下轴点是 View 中心
+ -->
+    <!--平移动画，对应 TranslateAnimation 类，可以使 View 完成垂直或者水平方向的移动效果。-->
+    <translate
+        android:fromXDelta="500"
+        android:toXDelta="0" />
+    <!--缩放动画，对应 ScaleAnimation 类，可以使 View 具有放大和缩小的动画效果。-->
+    <scale
+        android:duration="1000"
+        android:fromXScale="0.0"
+        android:fromYScale="0.0"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        android:pivotX="50"
+        android:pivotY="50"
+        android:toXScale="2"
+        android:toYScale="2" />
+</set>
